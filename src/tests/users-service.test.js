@@ -7,7 +7,7 @@ import {
 describe('createUser', () => {
   // sample user to insert
   const ripley = {
-    username: 'ellenripley',
+    username: 'priyesh',
     password: 'lv426',
     email: 'ellenripley@aliens.com'
   };
@@ -111,36 +111,42 @@ describe('findAllUsers',  () => {
   const usernames = [
     "larry", "curley", "moe"
   ];
+  let usersWeInserted;
 
   // setup data before test
-  beforeAll(() =>
+  beforeAll(async () =>
     // insert several known users
-    usernames.map(username =>
-      createUser({
-        username,
-        password: `${username}123`,
-        email: `${username}@stooges.com`
-      })
-    )
+                 usernames.forEach(async (username) =>
+                                               await createUser({
+                                                                  username,
+                                                                  password: `${username}123`,
+                                                                  email: `${username}@stooges.com`
+                                                                }))
+
+
+
   );
 
   // clean up after ourselves
-  afterAll(() =>
-    // delete the users we inserted
-    usernames.map(username =>
-      deleteUsersByUsername(username)
-    )
+  afterAll(async () =>
+               // delete the users we inserted
+               /* usersWeInserted.map(async (username) =>
+                                    {await deleteUsersByUsername(username.username);})*/
+           {  await deleteUsersByUsername(usersWeInserted[0].username);
+             await deleteUsersByUsername(usersWeInserted[1].username);
+             await deleteUsersByUsername(usersWeInserted[2].username);}
   );
 
   test('can retrieve all users from REST API', async () => {
     // retrieve all the users
     const users = await findAllUsers();
 
+
     // there should be a minimum number of users
     expect(users.length).toBeGreaterThanOrEqual(usernames.length);
 
     // let's check each user we inserted
-    const usersWeInserted = users.filter(
+     usersWeInserted = users.filter(
       user => usernames.indexOf(user.username) >= 0);
 
     // compare the actual users in database with the ones we sent
