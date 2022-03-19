@@ -22,7 +22,7 @@ const MOCKED_TUITS_1 =
 ;
 
 test('tuit list renders static tuit array', () => {
-  // TODO: implement this
+
   render(
       <HashRouter>
         <Tuits tuits={MOCKED_TUITS_1}/>
@@ -33,7 +33,7 @@ test('tuit list renders static tuit array', () => {
 
 
 test('tuit list renders async', async () => {
-  // TODO: implement this
+
 
     const adam = {
         username: 'adam_smith',
@@ -61,13 +61,13 @@ test('tuit list renders async', async () => {
 
 
 
-        // insert the user in the database
+        // insert the tuit in the database
 
 
         // verify new user matches the parameter user
 
 
-        // retrieve the user from the database by its primary key
+        // retrieve tuits from the database by its primary key
         const findTuit = await findTuitById(responseTuit._id);
 
         const allTuits =  await findAllTuits();
@@ -80,14 +80,14 @@ test('tuit list renders async', async () => {
     expect(linkElement).toBeInTheDocument();
     deleteUsersByUsername(adam.username);
     await deleteTuit(findTuit._id);
-        // verify retrieved user matches parameter user
+        // verify retrieved tuits matches parameter user
 
 
 
 })
 
 test('tuit list renders mocked', async () => {
-  // TODO: implement this
+
     const mock = jest.spyOn(axios, 'get');
     axios.get.mockImplementation(() =>
                                      Promise.resolve({ data: {tuits: MOCKED_TUITS_1} }));
