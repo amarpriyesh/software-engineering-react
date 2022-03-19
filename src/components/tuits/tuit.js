@@ -1,6 +1,7 @@
 import React from "react";
 import TuitStats from "./tuit-stats";
 import TuitImage from "./tuit-image";
+import TuitVideo from "./tuit-video";
 
 const Tuit = ({tuit, deleteTuit}) => {
   return(
@@ -22,13 +23,13 @@ const Tuit = ({tuit, deleteTuit}) => {
         {tuit.tuit}
         {
           tuit.youtube &&
-            <TuitVideo tuit={tuit}/>
+            <TuitVideo tuit={tuit.youtube}/>
         }
         {
           tuit.image &&
-          <TuitImage tuit={tuit}/>
+          <TuitImage tuit={tuit.image}/>
         }
-        <TuitStats tuit={tuit}/>
+        <TuitStats tuit={tuit.stats}/>
       </div>
     </li>
   );
