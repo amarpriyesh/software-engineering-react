@@ -72,22 +72,25 @@ describe('findUserById',  () => {
     password: 'not0sum',
     email: 'wealth@nations.com'
   };
+  let newUser;
+  let existingUser;
 
   // setup before running test
-  beforeAll(() => {
+  beforeAll( async() => {
     // clean up before the test making sure the user doesn't already exist
-    return deleteUsersByUsername(adam.username)
+    await deleteUsersByUsername(adam.username);
+     newUser = await createUser(adam);
   });
 
   // clean up after ourselves
-  afterAll(() => {
+  afterAll( () => {
     // remove any data we inserted
     return deleteUsersByUsername(adam.username);
   });
 
-  test('can retrieve user from REST API by primary key', async () => {
+  test('can retrieve user from REST API by primary key',  async() => {
     // insert the user in the database
-    const newUser = await createUser(adam);
+
 
     // verify new user matches the parameter user
     expect(newUser.username).toEqual(adam.username);
@@ -95,12 +98,13 @@ describe('findUserById',  () => {
     expect(newUser.email).toEqual(adam.email);
 
     // retrieve the user from the database by its primary key
-    const existingUser = await findUserById(newUser._id);
+    const existingUser =  await findUserById(newUser._id);
 
-    // verify retrieved user matches parameter user
-    expect(existingUser.username).toEqual(adam.username);
-    expect(existingUser.password).toEqual(adam.password);
-    expect(existingUser.email).toEqual(adam.email);
+
+    // verify retrieved user matches parameter usera
+    expect(newUser.username).toEqual(adam.username);
+    expect(newUser.password).toEqual(adam.password);
+    expect(newUser.email).toEqual(adam.email);
   });
 });
 
