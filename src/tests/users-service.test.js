@@ -114,16 +114,20 @@ describe('findAllUsers',  () => {
   let usersWeInserted;
 
   // setup data before test
-  beforeAll(async () =>
-    // insert several known users
-                 usernames.forEach(async (username) =>
-                                               await createUser({
-                                                                  username,
-                                                                  password: `${username}123`,
-                                                                  email: `${username}@stooges.com`
-                                                                }))
+  beforeAll(async () => {
+              // insert several known users
+              await createUser({
+                                 username: `${usernames[0]}`,
+                                 password: `${usernames[0]}123`,
+                                 email: `${usernames[0]}@stooges.com`
+                               });
+    await createUser({username:`${usernames[1]}`, password: `${usernames[1]}123`, email: `${usernames[1]}@stooges.com`
+                     })
 
+    await createUser({username:`${usernames[2]}`, password: `${usernames[2]}123`, email: `${usernames[2]}@stooges.com`
+                     })
 
+            }
 
   );
 

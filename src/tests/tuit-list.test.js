@@ -17,7 +17,7 @@ const MOCKED_TUITS = [
 ];
 
 const MOCKED_TUITS_1 =
- [ {tuit:"alice's tuit", postedBy:"lll",postedOn:Date.now(),_id:"1"},{tuit:" tuit", postedBy:"lll",postedOn:Date.now(),_id:"2"},{tuit:" tuit", postedBy:"lll",postedOn:Date.now(),_id:"3"}]
+ [ {tuit:"alice's tuit", postedBy:"lll",postedOn:Date.now(),_id:"1",stats:{}},{tuit:" tuit", postedBy:"lll",postedOn:Date.now(),_id:"2",stats:{}},{tuit:" tuit", postedBy:"lll",postedOn:Date.now(),_id:"3",stats:{}}]
 
 ;
 
