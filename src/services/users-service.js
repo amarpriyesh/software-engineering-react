@@ -1,5 +1,5 @@
 import axios from "axios";
-const BASE_URL = "https://priyesh-node-a3.herokuapp.com/api";
+const BASE_URL = "https://priyesh-tuiter-node.herokuapp.com/api";
 // const BASE_URL = "priyesh-node-a3.herokuapp.com/api";
 
 const LOGIN_API = `${BASE_URL}/login`;
