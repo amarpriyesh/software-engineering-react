@@ -26,7 +26,7 @@ const Tuit = ({tuit, deleteTuit, likeTuit}) => {
         } else if(secondsOld > 1) {
             old = Math.round(secondsOld) + 's';
         }
-        return old;
+        return posted;
     }
   return(
     // <li onClick={() => navigate(`/tuit/${tuit._id}`)}
@@ -34,7 +34,7 @@ const Tuit = ({tuit, deleteTuit, likeTuit}) => {
       <div className="pe-2">
         {
           tuit.postedBy &&
-          <img src={`../images/${tuit.postedBy.username}.jpg`}
+          <img src={tuit.postedBy.profilePhoto}
                className="ttr-tuit-avatar-logo rounded-circle"/>
         }
       </div>
@@ -43,11 +43,11 @@ const Tuit = ({tuit, deleteTuit, likeTuit}) => {
           <Link to={`/tuit/${tuit._id}`}>
           <i className="float-end fas fa-circle-ellipsis me-1"></i>
           </Link>
-        <h2
+        <p><h2
           className="fs-5">
           {tuit.postedBy && tuit.postedBy.username}
-          @{tuit.postedBy && tuit.postedBy.username} -
-            <span className="ms-1">{daysOld(tuit)}</span></h2>
+          @{tuit.postedBy && tuit.postedBy.username} -<h50>
+            <span className="ms-1">{daysOld(tuit).toDateString()}</span></h50></h2></p>
         {tuit.tuit}
         {
           tuit.youtube &&
