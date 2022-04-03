@@ -26,8 +26,8 @@ export const Login = () => {
         service.login(loginUser)
             .then((user) => navigate('/profile/mytuits'))
             .catch(e => alert(e));
-    const signup = (user1) =>
-        service.register(user1)
+    const googleLogin = (user1) =>
+        service.googleLogin(user1)
             .then(() => navigate('/home'))
             .catch(e => alert(e));
     const responseGoogle = (response) => {
@@ -39,7 +39,7 @@ export const Login = () => {
         }
 
         console.log('Logged In',user);
-        const t= signup(user).then(response => response);
+        const t= googleLogin(user).then(response => response);
         console.log(t)
     }
     return (
@@ -62,7 +62,7 @@ export const Login = () => {
             </button>
 
              <GoogleLogin
-                clientId="959350101705-iulfiifgd5jt2n09cuuu9vj3a9lnqb0v.apps.googleusercontent.com"
+                clientId="959350101705-2b65fq1nv6o2211ipkt87cb7a5askm82.apps.googleusercontent.com"
                 buttonText="Login"
                 onSuccess={responseGoogle}
                 onFailure={responsefGoogle}
