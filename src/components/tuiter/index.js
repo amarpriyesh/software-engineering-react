@@ -1,7 +1,7 @@
 import React from "react";
 import Navigation from "../navigation";
 import WhatsHappening from "../whats-happening";
-import {BrowserRouter, Routes, Route, HashRouter} from "react-router-dom";
+import {BrowserRouter, Routes, Route, HashRouter, useNavigate} from "react-router-dom";
 import Home from "../home";
 import Bookmarks from "../bookmarks";
 import Profile from "../profile";
@@ -17,7 +17,10 @@ import Signup from "../profile/signup";
 import TuitScreen from "../tuits/tuit-screen";
 
 function Tuiter () {
+ /* const navigate = useNavigate();
+  navigate(Login);*/
   return(
+
     <HashRouter>
       <div className="container">
         <div className="ttr-tuiter">
