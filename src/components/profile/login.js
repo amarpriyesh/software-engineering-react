@@ -30,6 +30,7 @@ export const Login = () => {
         service.googleLogin(user1)
             .then(() => navigate('/home'))
             .catch(e => alert(e));
+
     const responseGoogle = (response) => {
         const user = {
             username: response.profileObj.givenName,
