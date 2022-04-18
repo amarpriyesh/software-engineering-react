@@ -3,7 +3,7 @@ import * as service from "../../services/likes-service";
 import {useEffect, useState} from "react";
 
 /**
- * The below function renders tuits liked by the user.
+ * The below function renders tuits liked by the user. changes in  my likes.
  * @returns {JSX.Element}
  * @constructor
  */
