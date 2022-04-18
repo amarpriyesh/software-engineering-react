@@ -1,5 +1,21 @@
 import React from "react";
 
+const likeSymbol = (tuit) => {
+    if(tuit.stats.likes ==0) {
+        return <h6><i className="fa-light fa-thumbs-up" style={{color: 'red'}}></i>{tuit.stats.likes}</h6>
+    }
+    else {
+        return <h6><i className="fas fa-thumbs-up me-1" style={{color: 'red'}}></i>{tuit.stats.likes}</h6>
+    }
+}
+const dislikeSymbol = (tuit) => {
+    if(tuit.stats.dislikes ==0) {
+        return <h6><i className="fa-light fa-thumbs-down" style={{color: 'black'}}></i>{tuit.stats.dislikes}</h6>
+    }
+    else {
+        return <h6><i className="fas fa-thumbs-down me-1" style={{color: 'black'}}></i>{tuit.stats.dislikes}</h6>
+    }
+}
 const TuitStats = ({tuit, likeTuit = () => {},dislikeTuit = () => {}}) => {
     return (
       <div className="row mt-2">
@@ -14,16 +30,14 @@ const TuitStats = ({tuit, likeTuit = () => {},dislikeTuit = () => {}}) => {
         <div className="col">
 
           <span onClick={() => likeTuit(tuit)}>
-              {
-                 <h6><i className="fas fa-thumbs-up me-1" style={{color: 'red'}}></i>{tuit.stats.likes}</h6>
-              }
+            {likeSymbol(tuit=tuit) }
 
           </span>
         </div>
           <div className="col">
           <span onClick={() => dislikeTuit(tuit)}>
                {
-                   <h6><i className="fas fa-thumbs-down me-1" style={{color: 'black'}}></i>{tuit.stats.dislikes}</h6>
+                   dislikeSymbol(tuit=tuit)
                }
           </span>
           </div>

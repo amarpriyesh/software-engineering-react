@@ -18,7 +18,7 @@ const responsefGoogle = (response) => {
 }
 
 
-
+const client_id=process.env.CLIENT_ID
 export const Login = () => {
     const [loginUser, setLoginUser] = useState({});
     const navigate = useNavigate()
@@ -60,14 +60,14 @@ export const Login = () => {
             <button onClick={login}
                     className="btn btn-primary mb-5">Login
             </button>
-
+<div>
              <GoogleLogin
                 clientId="959350101705-2b65fq1nv6o2211ipkt87cb7a5askm82.apps.googleusercontent.com"
-                buttonText="Login"
+                buttonText="Login with Google"
                 onSuccess={responseGoogle}
                 onFailure={responsefGoogle}
                 cookiePolicy={'single_host_origin'}
-            />
+            /></div>
 
 
         </div>
